@@ -7,7 +7,7 @@ help:
 all: clean install test
 
 test:
-	pytest atelie/tests -v
+	pytest tests -v
 
 install:
 	pip install --upgrade pip
