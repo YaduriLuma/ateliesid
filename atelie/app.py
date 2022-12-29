@@ -7,5 +7,13 @@ configuration.init_app(app)
 database.init_app(app)
 views.init_app(app)
 
-if __name__ == "__main__":
-    app.run(debug=True)
+
+def minimal_app(**config):
+    app = Flask(__name__)
+    configuration.init_app(app)
+    return app
+
+
+def create_app(**config):
+    app = minimal_app(**config)
+    return app
