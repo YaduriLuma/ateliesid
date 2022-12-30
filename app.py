@@ -5,8 +5,8 @@ import views
 app = Flask(__name__)
 
 configuration.init_app(app)
-database.init_app(app)
-views.init_app(app)
+db = database.init_app(app)
+app.register_blueprint(views.bp)
 
 if __name__ == "__main__":
     app.run(debug=True)

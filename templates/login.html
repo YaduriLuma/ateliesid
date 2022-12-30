@@ -1,14 +1,41 @@
-{% extends 'layout.html' %}
-{% block navbar %}{% endblock %}
-{% block content %}
-<div class="container">
-    <form method="post" action={{url_for('index')}}>
-          <input type="hidden" name="proxima" value="{{ proxima or url_for('index') }}">
-            <p><label>Nome de usuário:</label> <input class="form-control" type="text" name="usuario" required></p>
-            <p><label>Senha:</label> <input class="form-control" type="password" name="senha" required></p>
-            <p><button class="btn btn-primary" type="submit">Entrar</button></p>
-    </form>
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{title}}</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container-fluid p-3 bg-dark text-white text-center">
+    <img class="mb-4" src="/static/images/favicon.ico" alt="" width="72" height="72">
+    <p>___</p>
 </div>
+<div id="content" class="container">
+    <div class="container d-flex justify-content-center p-3">
+        <form method="post" action={{url_for('login')}} style="width:400px;">
+            <p>{{error}}</p>
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email"
+                       placeholder="Digite seu email" required autofocus>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="password" name="password"
+                       placeholder="Digite sua senha" required>
+            </div>
+            <div class="text-center">
+                <a href="#">Esqueceu a senha?</a></br></br>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
 
-{% endblock %}
-{% block footer %}{% endblock %}
+        </form>
+    </div>
+</div>
+<div id="footer" class="container">
+    &copy; Copyright 2008 by <a href="http://domain.invalid/">Yaduri</a>.
+</div>
+<script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
